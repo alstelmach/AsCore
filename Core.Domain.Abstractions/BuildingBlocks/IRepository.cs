@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace Core.Domain.Abstractions.Components
+namespace Core.Domain.Abstractions.BuildingBlocks
 {
     public interface IRepository
     {

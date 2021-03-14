@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Core.Domain.Abstractions.Components
+namespace Core.Domain.Abstractions.BuildingBlocks
 {
     public interface ICrudRepository<TAggregateRoot> : IRepository
-        where TAggregateRoot : IAggregateRoot
+        where TAggregateRoot : AggregateRoot
     {
         Task<TAggregateRoot> CreateAsync(TAggregateRoot aggregateRoot);
         Task<IEnumerable<TAggregateRoot>> GetAsync(CancellationToken cancellationToken = default);

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Core.Domain.Abstractions.Components
+namespace Core.Domain.Abstractions.BuildingBlocks
 {
     public abstract class DomainEvent : IDomainEvent
     {

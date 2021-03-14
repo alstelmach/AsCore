@@ -1,7 +1,7 @@
 ﻿using System;
 using MediatR;
 
-namespace Core.Domain.Abstractions.Components
+namespace Core.Domain.Abstractions.BuildingBlocks
 {
     public interface IDomainEvent : INotification,
         IIdentifiable

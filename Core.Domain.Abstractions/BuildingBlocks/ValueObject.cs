@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace Core.Domain.Abstractions.Components
+namespace Core.Domain.Abstractions.BuildingBlocks
 {
     public abstract class ValueObject
     {
