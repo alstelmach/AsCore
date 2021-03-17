@@ -2,8 +2,8 @@
 
 namespace Core.Domain.Abstractions.BuildingBlocks
 {
-    public interface IRepository
+    public interface IRepository<in TAggregateRoot> where TAggregateRoot : AggregateRoot
     {
-        Task CommitAsync();
+        Task CommitAsync(TAggregateRoot aggregateRoot);
     }
 }
