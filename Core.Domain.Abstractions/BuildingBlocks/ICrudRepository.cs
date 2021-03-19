@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Core.Domain.Abstractions.BuildingBlocks
 {
-    public interface ICrudRepository<TAggregateRoot> : IRepository
+    public interface ICrudRepository<TAggregateRoot> : IRepository<TAggregateRoot>
         where TAggregateRoot : AggregateRoot
     {
         Task<TAggregateRoot> CreateAsync(TAggregateRoot aggregateRoot, CancellationToken cancellationToken = default);

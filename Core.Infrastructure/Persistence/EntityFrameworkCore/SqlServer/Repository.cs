@@ -55,11 +55,13 @@ namespace Core.Infrastructure.Persistence.EntityFrameworkCore.SqlServer
             }
         }
         
-        public virtual async Task CommitAsync()
+        public async Task CommitAsync(TAggregateRoot aggregateRoot)
         {
-            var potentiallyAffectedEntities = DbContext.GetAffectedTrackedEntities();
             await DbContext.SaveChangesAsync();
-            await DbContext.DispatchDomainEventsAsync(DomainEventPublisher, potentiallyAffectedEntities);
+
+            var domainEvents = aggregateRoot.DequeueDomainEvents();
+
+            await DomainEventPublisher.PublishAsync(domainEvents);
         }
     }
 }
