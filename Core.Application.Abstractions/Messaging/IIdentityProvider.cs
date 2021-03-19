@@ -2,7 +2,7 @@
 
 namespace Core.Application.Abstractions.Messaging
 {
-    public interface IContract
+    public interface IIdentityProvider
     {
         ClaimsPrincipal ClaimsPrincipal { get; }
     }

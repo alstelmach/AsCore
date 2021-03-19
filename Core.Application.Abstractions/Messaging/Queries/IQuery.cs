@@ -3,7 +3,7 @@
 namespace Core.Application.Abstractions.Messaging.Queries
 {
     public interface IQuery<out TResponse> : IRequest<TResponse>,
-        IContract
+        IIdentityProvider
     {
     }
 }
