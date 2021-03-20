@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Core.Domain.Abstractions.BuildingBlocks;
 using Microsoft.EntityFrameworkCore;
 
-namespace Core.Infrastructure.Persistence.EntityFrameworkCore.SqlServer
+namespace Core.Infrastructure.Persistence.SQLServer.EntityFrameworkCore
 {
     public abstract class Repository<TAggregateRoot> : ICrudRepository<TAggregateRoot>
         where TAggregateRoot : AggregateRoot

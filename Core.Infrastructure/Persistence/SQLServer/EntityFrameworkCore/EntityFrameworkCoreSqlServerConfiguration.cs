@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Core.Infrastructure.Persistence.EntityFrameworkCore.SqlServer
+namespace Core.Infrastructure.Persistence.SQLServer.EntityFrameworkCore
 {
-    public static class EntityFrameworkCoreConfiguration
+    public static class EntityFrameworkCoreSqlServerConfiguration
     {
         private const string DefaultSqlServerTag = "SqlServerConnection";
 

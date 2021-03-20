@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Runtime.Serialization;
 
 namespace Core.Domain.Abstractions.BuildingBlocks
 {
@@ -10,13 +9,9 @@ namespace Core.Domain.Abstractions.BuildingBlocks
             : base(message)
         {
         }
+
         protected DomainException(string message, Exception innerException)
             : base(message, innerException)
-        {
-        }
-
-        protected DomainException(SerializationInfo info, StreamingContext context)
-            : base(info, context)
         {
         }
     }

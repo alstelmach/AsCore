@@ -5,9 +5,12 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <PackageReference Include="AspNetCore.HealthChecks.NpgSql" Version="5.0.2" />
       <PackageReference Include="AspNetCore.HealthChecks.Rabbitmq" Version="5.0.1" />
       <PackageReference Include="AspNetCore.HealthChecks.SqlServer" Version="5.0.2" />
       <PackageReference Include="AspNetCore.HealthChecks.UI.Client" Version="5.0.1" />
+      <PackageReference Include="JsonNet.PrivatePropertySetterResolver" Version="1.0.0" />
+      <PackageReference Include="Marten" Version="4.0.0-alpha.8" />
       <PackageReference Include="MassTransit" Version="7.2.0-develop.3323" />
       <PackageReference Include="MassTransit.Extensions.DependencyInjection" Version="7.2.0-develop.3323" />
       <PackageReference Include="MassTransit.RabbitMQ" Version="7.2.0-develop.3323" />
@@ -27,6 +30,7 @@
 
     <ItemGroup>
       <Folder Include="Mvc\Gateway" />
+      <Folder Include="Persistence\PostgreSQL" />
     </ItemGroup>
 
 </Project>
