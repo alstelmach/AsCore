@@ -20,11 +20,18 @@ namespace Core.Infrastructure.Persistence.SQLServer.EntityFrameworkCore
         protected DbContext DbContext { get; }
         protected IDomainEventPublisher DomainEventPublisher { get; }
 
-        public virtual async Task<TAggregateRoot> CreateAsync(TAggregateRoot aggregateRoot, CancellationToken cancellationToken = default) =>
-            (await DbContext
+        public virtual async Task<TAggregateRoot> CreateAsync(TAggregateRoot aggregateRoot,
+            CancellationToken cancellationToken = default)
+        {
+            var root = (await DbContext
                 .Set<TAggregateRoot>()
                 .AddAsync(aggregateRoot, cancellationToken))
                 .Entity;
+
+            await CommitAsync(root);
+
+            return root;
+        }
 
         public virtual async Task<IEnumerable<TAggregateRoot>> GetAsync(CancellationToken cancellationToken = default) =>
             await DbContext
@@ -37,11 +44,18 @@ namespace Core.Infrastructure.Persistence.SQLServer.EntityFrameworkCore
                 .FirstOrDefaultAsync(aggregateRoot =>
                     aggregateRoot.Id == id, cancellationToken);
 
-        public virtual void Update(TAggregateRoot aggregateRoot, CancellationToken cancellationToken = default) =>
+        public virtual async Task<TAggregateRoot> UpdateAsync(TAggregateRoot aggregateRoot,
+            CancellationToken cancellationToken = default)
+        {
             DbContext
                 .Set<TAggregateRoot>()
                 .Update(aggregateRoot);
 
+            await CommitAsync(aggregateRoot);
+            
+            return aggregateRoot;
+        }
+        
         public virtual async Task DeleteAsync(Guid id, CancellationToken cancellationToken = default)
         {
             var aggregateRoot = await GetAsync(id, cancellationToken);
@@ -53,9 +67,11 @@ namespace Core.Infrastructure.Persistence.SQLServer.EntityFrameworkCore
                     .Set<TAggregateRoot>()
                     .Remove(aggregateRoot);
             }
+
+            await DbContext.SaveChangesAsync(cancellationToken);
         }
         
-        public async Task CommitAsync(TAggregateRoot aggregateRoot)
+        protected async Task CommitAsync(TAggregateRoot aggregateRoot)
         {
             await DbContext.SaveChangesAsync();
 

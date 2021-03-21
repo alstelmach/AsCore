@@ -10,6 +10,8 @@ namespace Core.Infrastructure.Persistence.PostgreSQL.Marten
     public static class MartenConfiguration
     {
         private const string DefaultPostgreSqlTag = "PostgreSQL";
+        private const string DbOwner = "postgres"; // ToDo: make it configurable
+        private const string Encoding = "UTF-8";
         
         public static IServiceCollection AddMarten(this IServiceCollection services,
             IConfiguration configuration,
@@ -22,8 +24,20 @@ namespace Core.Infrastructure.Persistence.PostgreSQL.Marten
                 .GetConnectionString(connectionStringSectionName);
 
             services
-                .AddSingleton(DocumentStore.For(options =>
+                .AddSingleton<IDocumentStore>(DocumentStore.For(options =>
                 {
+                    options.CreateDatabasesForTenants(databaseConfig =>
+                    {
+                        databaseConfig.MaintenanceDatabase(connectionString);
+
+                        databaseConfig // ToDo: check is it working
+                            .ForTenant()
+                            .CheckAgainstPgDatabase()
+                            .WithOwner(DbOwner)
+                            .WithEncoding(Encoding)
+                            .ConnectionLimit(-1);
+                    });
+                    
                     options.Connection(connectionString);
                     options.DatabaseSchemaName = schemaName;
                     options.Serializer(GetCustomJsonSerializer());

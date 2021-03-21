@@ -19,8 +19,7 @@ namespace Core.Infrastructure.Messaging
         private const string RabbitConnectionCheckName = "RabbitMQConnection";
         private const string DefaultRabbitMQTag = "RabbitMQBus";
 
-        public static IServiceCollection AddMessaging(this IServiceCollection services,
-            IConfiguration configuration) =>
+        public static IServiceCollection AddMessaging(this IServiceCollection services) =>
             services
                 .AddScoped<IMediator, Mediator>()
                 .AddTransient<ServiceFactory>(serviceProvider =>

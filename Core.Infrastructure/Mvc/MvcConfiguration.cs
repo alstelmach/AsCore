@@ -8,7 +8,7 @@ namespace Core.Infrastructure.Mvc
 {
     public static class MvcConfiguration
     {
-        public static IServiceCollection AddMvc(this IServiceCollection services) =>
+        public static IServiceCollection AddMvcDependencies(this IServiceCollection services) =>
             services
                 .AddControllers(options => options
                     .Filters
