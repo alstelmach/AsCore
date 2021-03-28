@@ -1,4 +1,5 @@
-﻿using Core.Application.Abstractions.Messaging.Commands;
+﻿using System;
+using Core.Application.Abstractions.Messaging.Commands;
 using Core.Application.Abstractions.Messaging.Queries;
 using Microsoft.AspNetCore.Mvc;
 
@@ -18,5 +19,10 @@ namespace Core.Infrastructure.Mvc
         
         protected ICommandBus CommandBus { get; }
         protected IQueryBus QueryBus { get; }
+
+        protected static string GetUri(Guid resourceId,
+            string resourceName,
+            string version = DefaultApiVersion) =>
+                $"api/v{version}/{resourceName}/{resourceId}";
     }
 }

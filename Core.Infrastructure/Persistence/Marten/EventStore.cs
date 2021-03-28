@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Core.Domain.Abstractions.BuildingBlocks;
 using Marten;
 
-namespace Core.Infrastructure.Persistence.PostgreSQL.Marten
+namespace Core.Infrastructure.Persistence.Marten
 {
     public sealed class EventStore : IEventStore
     {

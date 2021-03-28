@@ -3,15 +3,15 @@ using Marten;
 using Marten.Services;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 
-namespace Core.Infrastructure.Persistence.PostgreSQL.Marten
+namespace Core.Infrastructure.Persistence.Marten
 {
     public static class MartenConfiguration
     {
         private const string DefaultPostgreSqlTag = "PostgreSQL";
-        private const string DbOwner = "postgres"; // ToDo: make it configurable
-        private const string Encoding = "UTF-8";
+        private const string EventStoreSectionKey = "EventStoreSettings";
         
         public static IServiceCollection AddMarten(this IServiceCollection services,
             IConfiguration configuration,
@@ -23,24 +23,33 @@ namespace Core.Infrastructure.Persistence.PostgreSQL.Marten
             var connectionString = configuration
                 .GetConnectionString(connectionStringSectionName);
 
+            var eventStoreSettings = services
+                .Configure<EventStoreSettings>(configuration
+                    .GetSection(EventStoreSectionKey))
+                .BuildServiceProvider()
+                .GetRequiredService<IOptions<EventStoreSettings>>()
+                .Value;
+
             services
                 .AddSingleton<IDocumentStore>(DocumentStore.For(options =>
                 {
-                    options.CreateDatabasesForTenants(databaseConfig =>
-                    {
-                        databaseConfig.MaintenanceDatabase(connectionString);
-
-                        databaseConfig // ToDo: check is it working
-                            .ForTenant()
-                            .CheckAgainstPgDatabase()
-                            .WithOwner(DbOwner)
-                            .WithEncoding(Encoding)
-                            .ConnectionLimit(-1);
-                    });
-                    
                     options.Connection(connectionString);
                     options.DatabaseSchemaName = schemaName;
                     options.Serializer(GetCustomJsonSerializer());
+                    
+                    options.CreateDatabasesForTenants(databaseConfig =>
+                    {
+                        databaseConfig.MaintenanceDatabase(connectionString);
+                        
+                        // ToDo: Does not work - solve
+
+                        databaseConfig
+                            .ForTenant()
+                            .CheckAgainstPgDatabase()
+                            .WithOwner(eventStoreSettings.DatabaseOwner)
+                            .WithEncoding(eventStoreSettings.Encoding)
+                            .ConnectionLimit(eventStoreSettings.ConnectionLimit);
+                    });
                 }));
 
             if (useHealthCheck)
@@ -62,7 +71,7 @@ namespace Core.Infrastructure.Persistence.PostgreSQL.Marten
             serializer
                 .Customize(configuration =>
                 {
-                    configuration.ContractResolver = new PrivatePropertySetterResolver(); // ToDo: check it out
+                    configuration.ContractResolver = new PrivatePropertySetterResolver();
                     configuration.PreserveReferencesHandling = PreserveReferencesHandling.Objects;
                 });
 

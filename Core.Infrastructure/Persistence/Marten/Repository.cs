@@ -4,7 +4,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Core.Domain.Abstractions.BuildingBlocks;
 
-namespace Core.Infrastructure.Persistence.PostgreSQL.Marten
+namespace Core.Infrastructure.Persistence.Marten
 {
     public abstract class Repository<TAggregateRoot> : ICrudRepository<TAggregateRoot>
         where TAggregateRoot : AggregateRoot
