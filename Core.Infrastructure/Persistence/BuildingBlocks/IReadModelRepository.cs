@@ -7,7 +7,7 @@ namespace Core.Infrastructure.Persistence.BuildingBlocks
     {
         Task CreateAsync(TObject @object);
         Task<IEnumerable<TObject>> QueryAsync(string sql);
-        Task<TObject> QueryFirstAsync(string sql);
+        Task<TObject> QueryFirstOrDefaultAsync(string sql);
         Task UpdateAsync(TObject @object);
         Task DeleteAsync(TObject @object);
     }

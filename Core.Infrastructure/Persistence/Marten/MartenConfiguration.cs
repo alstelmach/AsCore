@@ -41,7 +41,7 @@ namespace Core.Infrastructure.Persistence.Marten
                     {
                         databaseConfig.MaintenanceDatabase(connectionString);
                         
-                        // ToDo: Does not work - solve
+                        // ToDo: Create database if does not exist (the below code does not work)
 
                         databaseConfig
                             .ForTenant()

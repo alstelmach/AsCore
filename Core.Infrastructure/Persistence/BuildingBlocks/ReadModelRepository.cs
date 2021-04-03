@@ -29,11 +29,11 @@ namespace Core.Infrastructure.Persistence.BuildingBlocks
                 .GetDbConnection()
                 .QueryAsync<TObject>(sql);
 
-        public virtual async Task<TObject> QueryFirstAsync(string sql) =>
+        public virtual async Task<TObject> QueryFirstOrDefaultAsync(string sql) =>
             await DbContext
                 .Database
                 .GetDbConnection()
-                .QueryFirstAsync<TObject>(sql);
+                .QueryFirstOrDefaultAsync<TObject>(sql);
 
         public virtual async Task UpdateAsync(TObject @object)
         {
