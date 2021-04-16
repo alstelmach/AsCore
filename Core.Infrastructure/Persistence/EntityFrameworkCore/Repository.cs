@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Core.Domain.Abstractions.BuildingBlocks;
@@ -77,7 +78,10 @@ namespace Core.Infrastructure.Persistence.EntityFrameworkCore
 
             var domainEvents = aggregateRoot.DequeueDomainEvents();
 
-            await DomainEventPublisher.PublishAsync(domainEvents);
+            if (domainEvents.Any())
+            {
+                await DomainEventPublisher.PublishAsync(domainEvents);
+            }
         }
     }
 }

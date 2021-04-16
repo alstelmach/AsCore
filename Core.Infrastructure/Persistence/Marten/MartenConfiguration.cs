@@ -30,27 +30,23 @@ namespace Core.Infrastructure.Persistence.Marten
                 .GetRequiredService<IOptions<EventStoreSettings>>()
                 .Value;
 
-            services
-                .AddSingleton<IDocumentStore>(DocumentStore.For(options =>
-                {
-                    options.Connection(connectionString);
-                    options.DatabaseSchemaName = schemaName;
-                    options.Serializer(GetCustomJsonSerializer());
-                    
-                    options.CreateDatabasesForTenants(databaseConfig =>
+                services
+                    .AddSingleton<IDocumentStore>(DocumentStore.For(options =>
                     {
-                        databaseConfig.MaintenanceDatabase(connectionString);
-                        
-                        // ToDo: Create database if does not exist (the below code does not work)
-
-                        databaseConfig
-                            .ForTenant()
-                            .CheckAgainstPgDatabase()
-                            .WithOwner(eventStoreSettings.DatabaseOwner)
-                            .WithEncoding(eventStoreSettings.Encoding)
-                            .ConnectionLimit(eventStoreSettings.ConnectionLimit);
-                    });
-                }));
+                        options.Connection(connectionString);
+                        options.DatabaseSchemaName = schemaName;
+                        options.Serializer(GetCustomJsonSerializer());
+                
+                        options.CreateDatabasesForTenants(databaseConfig =>
+                        {
+                            databaseConfig
+                                .ForTenant()
+                                .CheckAgainstPgDatabase()
+                                .WithOwner(eventStoreSettings.DatabaseOwner)
+                                .WithEncoding(eventStoreSettings.Encoding)
+                                .ConnectionLimit(eventStoreSettings.ConnectionLimit);
+                        });
+                    }));
 
             if (useHealthCheck)
             {

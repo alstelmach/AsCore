@@ -40,6 +40,7 @@ namespace Core.Infrastructure.Mvc.Filters
             exception switch
             {
                 ArgumentNullException _ => HttpStatusCode.NotFound,
+                NullReferenceException _ => HttpStatusCode.NotFound,
                 UnauthorizedAccessException _ => HttpStatusCode.Unauthorized,
                 _ => HttpStatusCode.InternalServerError
             };

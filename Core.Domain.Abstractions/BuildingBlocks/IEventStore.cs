@@ -10,12 +10,14 @@ namespace Core.Domain.Abstractions.BuildingBlocks
         Task<TAggregateRoot> FindAsync<TAggregateRoot>(Guid id, CancellationToken cancellationToken = default)
             where TAggregateRoot : AggregateRoot;
 
-        Task<IReadOnlyCollection<TAggregateRoot>> GetAsync<TAggregateRoot>(CancellationToken cancellationToken = default)
-            where TAggregateRoot : AggregateRoot;
-
         Task ModifyAsync<TAggregateRoot>(TAggregateRoot aggregateRoot, CancellationToken cancellationToken = default)
             where TAggregateRoot : AggregateRoot;
 
         Task DeleteAsync(Guid id, CancellationToken cancellationToken = default);
+
+        Task<IReadOnlyCollection<IDomainEvent>> GetDomainEventsAsync(Guid streamId,
+            CancellationToken cancellationToken = default);
+
+        Task<IReadOnlyCollection<TEvent>> GetDomainEventsAsync<TEvent>(CancellationToken cancellationToken = default);
     }
 }

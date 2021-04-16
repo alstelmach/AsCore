@@ -4,6 +4,6 @@ namespace Core.Application.Abstractions.Messaging
 {
     public interface IIdentityProvider
     {
-        ClaimsPrincipal ClaimsPrincipal { get; }
+        ClaimsPrincipal ClaimsPrincipal { get; set; }
     }
 }

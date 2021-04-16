@@ -22,7 +22,7 @@ namespace Core.Infrastructure.Messaging
         public static IServiceCollection AddMessaging(this IServiceCollection services) =>
             services
                 .AddScoped<IMediator, Mediator>()
-                .AddTransient<ServiceFactory>(serviceProvider =>
+                .AddScoped<ServiceFactory>(serviceProvider =>
                     serviceProvider.GetService)
                 .AddScoped<ICommandBus, CommandBus>()
                 .AddScoped<IQueryBus, QueryBus>()

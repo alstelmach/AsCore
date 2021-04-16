@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using Core.Domain.Abstractions.BuildingBlocks;
@@ -17,10 +16,6 @@ namespace Core.Infrastructure.Persistence.Marten
         public async Task<TAggregateRoot> CreateAsync(TAggregateRoot aggregateRoot,
             CancellationToken cancellationToken = default) =>
                 await ModifyAsync(aggregateRoot, cancellationToken);
-
-        public async Task<IEnumerable<TAggregateRoot>> GetAsync(CancellationToken cancellationToken = default) =>
-            await EventStore
-                .GetAsync<TAggregateRoot>(cancellationToken);
 
         public async Task<TAggregateRoot> GetAsync(Guid id, CancellationToken cancellationToken = default) =>
             await EventStore

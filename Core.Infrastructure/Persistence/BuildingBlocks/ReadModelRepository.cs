@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 using Dapper;
 using Microsoft.EntityFrameworkCore;
@@ -21,19 +22,22 @@ namespace Core.Infrastructure.Persistence.BuildingBlocks
                 .AddAsync(@object);
 
             await DbContext.SaveChangesAsync();
+            DbContext.Entry(@object).State = EntityState.Detached;
         }
 
-        public virtual async Task<IEnumerable<TObject>> QueryAsync(string sql) =>
-            await DbContext
-                .Database
-                .GetDbConnection()
-                .QueryAsync<TObject>(sql);
+        public virtual async Task<IEnumerable<TObject>> QueryAsync(string sql,
+            CancellationToken cancellationToken = default) =>
+                await DbContext
+                    .Database
+                    .GetDbConnection()
+                    .QueryAsync<TObject>(sql, cancellationToken);
 
-        public virtual async Task<TObject> QueryFirstOrDefaultAsync(string sql) =>
-            await DbContext
-                .Database
-                .GetDbConnection()
-                .QueryFirstOrDefaultAsync<TObject>(sql);
+        public virtual async Task<TObject> QueryFirstOrDefaultAsync(string sql,
+            CancellationToken cancellationToken = default) =>
+                await DbContext
+                    .Database
+                    .GetDbConnection()
+                    .QueryFirstOrDefaultAsync<TObject>(sql, cancellationToken);
 
         public virtual async Task UpdateAsync(TObject @object)
         {
@@ -42,6 +46,7 @@ namespace Core.Infrastructure.Persistence.BuildingBlocks
                 .Update(@object);
 
             await DbContext.SaveChangesAsync();
+            DbContext.Entry(@object).State = EntityState.Detached;
         }
 
         public virtual async Task DeleteAsync(TObject @object)

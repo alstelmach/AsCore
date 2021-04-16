@@ -11,7 +11,7 @@
       <PackageReference Include="AspNetCore.HealthChecks.UI.Client" Version="5.0.1" />
       <PackageReference Include="Dapper" Version="2.0.78" />
       <PackageReference Include="JsonNet.PrivatePropertySetterResolver" Version="1.0.0" />
-      <PackageReference Include="Marten" Version="4.0.0-alpha.8" />
+      <PackageReference Include="Marten" Version="4.0.0-alpha.9" />
       <PackageReference Include="MassTransit" Version="7.2.0-develop.3323" />
       <PackageReference Include="MassTransit.Extensions.DependencyInjection" Version="7.2.0-develop.3323" />
       <PackageReference Include="MassTransit.RabbitMQ" Version="7.2.0-develop.3323" />
