@@ -1,14 +1,28 @@
 # Purpose of this repository
-This solution contains kind of seed work used in my other project. It improves development speed and makes other project more consistent.
+These projects contain seed work which needs to be implemented almost in every other web application. They improve development speed and make other project more consistent. 
 # Project structure
-I've decided to group core functionalities into four categories, all of them have corresponding project in the solution.
-### 1. Core.Application.Abstractions
-Here you can find abstractions used in application layer, which is responsible for task delegation to certain parts of domain layer. It contains no specific implementation - just interfaces.
-### 2. Core.Domain.Abstractions
-Use these abstractions if you need to make your project compliant with DDD methodology. The project contains some interfaces and base classes for DDD components like entity, repository etc.
-### 3. Core.Infrastructure
-Project consists of default implementations which are needed in almost every project.
-### 4. Core.Utilities
-Project contains some extension methods, and useful tools like swagger - generally helpers.
+Core functionalities are grouped into four different categories. All of them have corresponding solution project, and their own NuGet packages available at [NuGet Gallery](https://www.nuget.org/). 
+### Core.Application.Abstractions
+
+[![Nuget Package](https://badgen.net/nuget/v/AsCore.Application.Abstractions)](https://www.nuget.org/packages/AsCore.Application.Abstractions/)
+
+Here are the abstractions typically used in the application layer. The project contains no specific implementations - just interfaces, which may help you to square your code away.
+### Core.Domain.Abstractions
+
+[![Nuget Package](https://badgen.net/nuget/v/AsCore.Domain.Abstractions)](https://www.nuget.org/packages/AsCore.Domain.Abstractions/)
+
+Here are the building blocks for domain driven systems. The project contains some interfaces and base classes representing some DDD components, eg. aggregate root, repository etc.
+### Core.Infrastructure
+
+[![Nuget Package](https://badgen.net/nuget/v/AsCore.Infrastructure)](https://www.nuget.org/packages/AsCore.Infrastructure/)
+
+Project constists of commonly used infrastructure layer implementations.
+
+### Core.Utilities
+
+[![Nuget Package](https://badgen.net/nuget/v/AsCore.Utilities)](https://www.nuget.org/packages/AsCore.Utilities/)
+
+Package containing useful utility tools and extensions, colloquially called "helpers".
+
 # Roadmap
-Project hasn't been finished yet. It needs to mellow, while other projects using it will be implemented. Then, it will be released maybe as a NuGet which will make using it easier and provide some features like versioning.
+These projects will be improved, and some other functionalities may be added to them, during the other applications development. The next versions of the packages coming soon :)

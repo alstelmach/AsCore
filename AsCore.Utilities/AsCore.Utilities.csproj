@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+        <RootNamespace>AsCore.Utilities</RootNamespace>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <Title>AsCore.Utilities</Title>
+        <Authors>Aleksander Stelmach</Authors>
+        <Description>Package containing useful utility tools and extensions, colloquially called "helpers".</Description>
+        <RepositoryUrl>https://github.com/alstelmach/AsCore</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <PackageTags>Utilities, Tools, Core</PackageTags>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Swashbuckle.AspNetCore" Version="6.1.0" />
+    </ItemGroup>
+
+</Project>

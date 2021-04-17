@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+        <RootNamespace>AsCore.Application.Abstractions</RootNamespace>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <Title>AsCore.Application.Abstractions</Title>
+        <Authors>Aleksander Stelmach</Authors>
+        <Description>Package contains useful application layer abstractions.</Description>
+        <RepositoryUrl>https://github.com/alstelmach/AsCore</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <PackageTags>Application, Abstractions, Core</PackageTags>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\AsCore.Domain.Abstractions\AsCore.Domain.Abstractions.csproj" />
+    </ItemGroup>
+
+</Project>
