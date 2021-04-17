@@ -2,7 +2,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace AsCore.Infrastructure.Persistence.BuildingBlocks
+namespace AsCore.Application.Abstractions.Repositories
 {
     public interface IReadModelRepository<TObject> where TObject : class
     {

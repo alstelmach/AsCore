@@ -9,6 +9,6 @@ namespace AsCore.Domain.Abstractions.BuildingBlocks
             Id = id;
         }
 
-        public Guid Id { get; }
+        public Guid Id { get; protected set; }
     }
 }

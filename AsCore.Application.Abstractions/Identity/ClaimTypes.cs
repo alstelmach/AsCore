@@ -1,4 +1,4 @@
-﻿namespace AsCore.Infrastructure.Identity
+﻿namespace AsCore.Application.Abstractions.Identity
 {
     public static class ClaimTypes
     {

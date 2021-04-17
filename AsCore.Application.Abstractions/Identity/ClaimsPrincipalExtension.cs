@@ -2,9 +2,9 @@
 using System.Linq;
 using System.Security.Claims;
 
-namespace AsCore.Infrastructure.Identity
+namespace AsCore.Application.Abstractions.Identity
 {
-    public static class JwtDecoder
+    public static class ClaimsPrincipalExtension
     {
         public static Guid GetOwnerId(this ClaimsPrincipal claimsPrincipal) =>
             Guid.Parse(claimsPrincipal
