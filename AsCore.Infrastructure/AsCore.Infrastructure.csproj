@@ -10,11 +10,11 @@
         <RepositoryUrl>https://github.com/alstelmach/AsCore</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
         <PackageTags>Infrastructure, Core</PackageTags>
-        <PackageVersion>1.0.1</PackageVersion>
+        <PackageVersion>1.0.2</PackageVersion>
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="AspNetCore.HealthChecks.NpgSql" Version="5.0.2" />
+      <PackageReference Include="AspNetCore.HealthChecks.NpgSql" Version="3.1.1" />
       <PackageReference Include="AspNetCore.HealthChecks.Rabbitmq" Version="5.0.1" />
       <PackageReference Include="AspNetCore.HealthChecks.SqlServer" Version="5.0.2" />
       <PackageReference Include="AspNetCore.HealthChecks.UI.Client" Version="5.0.1" />
@@ -29,8 +29,8 @@
       <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="5.0.0" />
       <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.4" />
       <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.4" />
-      <PackageReference Include="Npgsql" Version="5.0.3" />
-      <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="5.0.2" />
+      <PackageReference Include="Npgsql" Version="4.1.9" />
+      <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="3.1.11" />
       <PackageReference Include="Ocelot" Version="17.0.0" />
       <PackageReference Include="Ocelot.Cache.CacheManager" Version="17.0.0" />
     </ItemGroup>
