@@ -77,7 +77,7 @@ namespace AsCore.Infrastructure.Persistence.EntityFrameworkCore
             await DbContext.SaveChangesAsync();
 
             var domainEvents = aggregateRoot.DequeueDomainEvents();
-
+            
             if (domainEvents.Any())
             {
                 await DomainEventPublisher.PublishAsync(domainEvents);
