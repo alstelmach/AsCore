@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
-using ASCore.Domain.Abstractions.BuildingBlocks;
+using AsCore.Domain.Abstractions.BuildingBlocks;
 
-namespace ASCore.Infrastructure.Persistence.Marten
+namespace AsCore.Infrastructure.Persistence.Marten
 {
     public abstract class Repository<TAggregateRoot> : ICrudRepository<TAggregateRoot>
         where TAggregateRoot : AggregateRoot

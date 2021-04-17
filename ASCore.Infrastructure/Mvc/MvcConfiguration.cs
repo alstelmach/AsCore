@@ -1,10 +1,10 @@
-﻿using ASCore.Infrastructure.Mvc.Filters;
+﻿using AsCore.Infrastructure.Mvc.Filters;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
 
-namespace ASCore.Infrastructure.Mvc
+namespace AsCore.Infrastructure.Mvc
 {
     public static class MvcConfiguration
     {

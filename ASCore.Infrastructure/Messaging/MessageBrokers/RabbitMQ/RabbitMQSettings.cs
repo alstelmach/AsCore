@@ -1,4 +1,4 @@
-﻿namespace ASCore.Infrastructure.Messaging.MessageBrokers.RabbitMQ
+﻿namespace AsCore.Infrastructure.Messaging.MessageBrokers.RabbitMQ
 {
     public sealed class RabbitMQSettings
     {

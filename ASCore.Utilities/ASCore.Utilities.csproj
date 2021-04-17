@@ -2,7 +2,7 @@
 
     <PropertyGroup>
         <TargetFramework>net5.0</TargetFramework>
-        <RootNamespace>Core.Utilities</RootNamespace>
+        <RootNamespace>AsCore.Utilities</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>

@@ -1,10 +1,10 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
-using ASCore.Application.Abstractions.Messaging.Queries;
+using AsCore.Application.Abstractions.Messaging.Queries;
 using MediatR;
 
 
-namespace ASCore.Infrastructure.Messaging.Queries
+namespace AsCore.Infrastructure.Messaging.Queries
 {
     public sealed class QueryBus : Bus,
         IQueryBus

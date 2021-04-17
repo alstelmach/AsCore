@@ -2,7 +2,7 @@
 
     <PropertyGroup>
         <TargetFramework>net5.0</TargetFramework>
-        <RootNamespace>Core.Infrastructure</RootNamespace>
+        <RootNamespace>AsCore.Infrastructure</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
@@ -28,12 +28,8 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\ASCore.Application.Abstractions\ASCore.Application.Abstractions.csproj" />
-      <ProjectReference Include="..\ASCore.Utilities\ASCore.Utilities.csproj" />
+      <ProjectReference Include="..\AsCore.Application.Abstractions\AsCore.Application.Abstractions.csproj" />
+      <ProjectReference Include="..\AsCore.Utilities\AsCore.Utilities.csproj" />
     </ItemGroup>
-
-    <ItemGroup>
-      <Folder Include="Mvc\Gateway" />
-    </ItemGroup>
-
+    
 </Project>

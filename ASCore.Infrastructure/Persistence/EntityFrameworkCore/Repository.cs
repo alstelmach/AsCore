@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using ASCore.Domain.Abstractions.BuildingBlocks;
+using AsCore.Domain.Abstractions.BuildingBlocks;
 using Microsoft.EntityFrameworkCore;
 
-namespace ASCore.Infrastructure.Persistence.EntityFrameworkCore
+namespace AsCore.Infrastructure.Persistence.EntityFrameworkCore
 {
     public abstract class Repository<TAggregateRoot> : ICrudRepository<TAggregateRoot>
         where TAggregateRoot : AggregateRoot

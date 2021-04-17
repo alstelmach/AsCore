@@ -1,8 +1,8 @@
 ﻿using System.Threading.Tasks;
-using ASCore.Application.Abstractions.Messaging.Events;
+using AsCore.Application.Abstractions.Messaging.Events;
 using MassTransit;
 
-namespace ASCore.Infrastructure.Messaging.Events
+namespace AsCore.Infrastructure.Messaging.Events
 {
     public abstract class IntegrationEventHandler<TIntegrationEvent> : IIntegrationEventHandler<TIntegrationEvent>,
         IConsumer<TIntegrationEvent>

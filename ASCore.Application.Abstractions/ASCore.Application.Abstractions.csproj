@@ -2,11 +2,11 @@
 
     <PropertyGroup>
         <TargetFramework>net5.0</TargetFramework>
-        <RootNamespace>Core.Application.Abstractions</RootNamespace>
+        <RootNamespace>AsCore.Application.Abstractions</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\ASCore.Domain.Abstractions\ASCore.Domain.Abstractions.csproj" />
+      <ProjectReference Include="..\AsCore.Domain.Abstractions\AsCore.Domain.Abstractions.csproj" />
     </ItemGroup>
 
 </Project>

@@ -1,9 +1,9 @@
 ﻿using System;
-using ASCore.Application.Abstractions.Messaging.Commands;
-using ASCore.Application.Abstractions.Messaging.Queries;
+using AsCore.Application.Abstractions.Messaging.Commands;
+using AsCore.Application.Abstractions.Messaging.Queries;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ASCore.Infrastructure.Mvc
+namespace AsCore.Infrastructure.Mvc
 {
     public abstract class Controller : ControllerBase
     {

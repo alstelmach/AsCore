@@ -4,7 +4,7 @@ using Ocelot.Cache.CacheManager;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
 
-namespace ASCore.Infrastructure.Mvc.Gateway.Ocelot
+namespace AsCore.Infrastructure.Mvc.Gateway.Ocelot
 {
     public static class OcelotConfiguration
     {

@@ -1,9 +1,9 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
-using ASCore.Application.Abstractions.Messaging.Commands;
+using AsCore.Application.Abstractions.Messaging.Commands;
 using MediatR;
 
-namespace ASCore.Infrastructure.Messaging.Commands
+namespace AsCore.Infrastructure.Messaging.Commands
 {
     public sealed class CommandBus : Bus,
         ICommandBus

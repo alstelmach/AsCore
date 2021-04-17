@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace ASCore.Application.Abstractions.Messaging.Events
+namespace AsCore.Application.Abstractions.Messaging.Events
 {
     public interface IIntegrationEventHandler<in TIntegrationEvent>
         where TIntegrationEvent : IntegrationEvent

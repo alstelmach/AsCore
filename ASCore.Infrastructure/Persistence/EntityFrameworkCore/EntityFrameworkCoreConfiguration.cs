@@ -1,11 +1,11 @@
 ﻿using System;
-using ASCore.Infrastructure.Persistence.BuildingBlocks;
+using AsCore.Infrastructure.Persistence.BuildingBlocks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace ASCore.Infrastructure.Persistence.EntityFrameworkCore
+namespace AsCore.Infrastructure.Persistence.EntityFrameworkCore
 {
     public static class EntityFrameworkCoreConfiguration
     {

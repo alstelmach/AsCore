@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace ASCore.Domain.Abstractions.BuildingBlocks
+namespace AsCore.Domain.Abstractions.BuildingBlocks
 {
     public abstract class ValueObject
     {

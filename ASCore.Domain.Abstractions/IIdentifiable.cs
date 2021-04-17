@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ASCore.Domain.Abstractions
+namespace AsCore.Domain.Abstractions
 {
     public interface IIdentifiable
     {

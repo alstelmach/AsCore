@@ -1,12 +1,12 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASCore.Application.Abstractions", "ASCore.Application.Abstractions\ASCore.Application.Abstractions.csproj", "{47EE7A0C-D672-47BF-BC13-4804808CC116}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsCore.Application.Abstractions", "AsCore.Application.Abstractions\AsCore.Application.Abstractions.csproj", "{47EE7A0C-D672-47BF-BC13-4804808CC116}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASCore.Domain.Abstractions", "ASCore.Domain.Abstractions\ASCore.Domain.Abstractions.csproj", "{0A481603-CBDB-4D2C-B63C-55EECBD125D0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsCore.Domain.Abstractions", "AsCore.Domain.Abstractions\AsCore.Domain.Abstractions.csproj", "{0A481603-CBDB-4D2C-B63C-55EECBD125D0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASCore.Infrastructure", "ASCore.Infrastructure\ASCore.Infrastructure.csproj", "{21A9752A-D464-4055-AEA6-18798DAC3BA1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsCore.Infrastructure", "AsCore.Infrastructure\AsCore.Infrastructure.csproj", "{21A9752A-D464-4055-AEA6-18798DAC3BA1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASCore.Utilities", "ASCore.Utilities\ASCore.Utilities.csproj", "{9EB86F99-1426-4E22-BED2-B1AE21DFB78E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsCore.Utilities", "AsCore.Utilities\AsCore.Utilities.csproj", "{9EB86F99-1426-4E22-BED2-B1AE21DFB78E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -2,7 +2,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace ASCore.Infrastructure.Persistence.BuildingBlocks
+namespace AsCore.Infrastructure.Persistence.BuildingBlocks
 {
     public interface IReadModelRepository<TObject> where TObject : class
     {

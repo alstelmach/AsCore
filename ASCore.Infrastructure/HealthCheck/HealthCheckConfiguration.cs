@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 
-namespace ASCore.Infrastructure.HealthCheck
+namespace AsCore.Infrastructure.HealthCheck
 {
     public static class HealthCheckConfiguration
     {

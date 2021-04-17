@@ -1,12 +1,12 @@
 ﻿using System;
-using ASCore.Infrastructure.Messaging.MessageBrokers.RabbitMQ;
-using ASCore.Utilities.Extensions;
+using AsCore.Infrastructure.Messaging.MessageBrokers.RabbitMQ;
+using AsCore.Utilities.Extensions;
 using MassTransit;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
-namespace ASCore.Infrastructure.Messaging.Events
+namespace AsCore.Infrastructure.Messaging.Events
 {
     public abstract class Listener : BackgroundService
     {

@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using Dapper;
 using Microsoft.EntityFrameworkCore;
 
-namespace ASCore.Infrastructure.Persistence.BuildingBlocks
+namespace AsCore.Infrastructure.Persistence.BuildingBlocks
 {
     public abstract class ReadModelRepository<TObject> where TObject : class
     {

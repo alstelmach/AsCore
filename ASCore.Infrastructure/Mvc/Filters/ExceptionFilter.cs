@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Newtonsoft.Json;
 
-namespace ASCore.Infrastructure.Mvc.Filters
+namespace AsCore.Infrastructure.Mvc.Filters
 {
     public sealed class ExceptionFilter : ExceptionFilterAttribute
     {

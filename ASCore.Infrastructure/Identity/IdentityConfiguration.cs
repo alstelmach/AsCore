@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 
-namespace ASCore.Infrastructure.Identity
+namespace AsCore.Infrastructure.Identity
 {
     public static class IdentityConfiguration
     {

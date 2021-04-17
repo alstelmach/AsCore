@@ -1,6 +1,6 @@
 ﻿using System.Security.Claims;
 
-namespace ASCore.Application.Abstractions.Messaging
+namespace AsCore.Application.Abstractions.Messaging
 {
     public interface IIdentityProvider
     {

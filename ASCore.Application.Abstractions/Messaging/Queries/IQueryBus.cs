@@ -1,7 +1,7 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
 
-namespace ASCore.Application.Abstractions.Messaging.Queries
+namespace AsCore.Application.Abstractions.Messaging.Queries
 {
     public interface IQueryBus
     {

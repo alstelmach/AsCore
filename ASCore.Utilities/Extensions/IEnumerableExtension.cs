@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace ASCore.Utilities.Extensions
+namespace AsCore.Utilities.Extensions
 {
     public static class IEnumerableExtension
     {

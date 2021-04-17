@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace ASCore.Domain.Abstractions.BuildingBlocks
+namespace AsCore.Domain.Abstractions.BuildingBlocks
 {
     public interface IEventStore
     {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ASCore.Domain.Abstractions.BuildingBlocks
+namespace AsCore.Domain.Abstractions.BuildingBlocks
 {
     [Serializable]
     public abstract class DomainException : Exception

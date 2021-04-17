@@ -1,4 +1,4 @@
-﻿namespace ASCore.Infrastructure.Identity
+﻿namespace AsCore.Infrastructure.Identity
 {
     public static class ClaimTypes
     {

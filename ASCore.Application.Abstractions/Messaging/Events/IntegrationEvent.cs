@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ASCore.Application.Abstractions.Messaging.Events
+namespace AsCore.Application.Abstractions.Messaging.Events
 {
     public abstract class IntegrationEvent
     {

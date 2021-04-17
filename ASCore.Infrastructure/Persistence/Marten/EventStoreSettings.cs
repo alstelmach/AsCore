@@ -1,4 +1,4 @@
-﻿namespace ASCore.Infrastructure.Persistence.Marten
+﻿namespace AsCore.Infrastructure.Persistence.Marten
 {
     public sealed class EventStoreSettings
     {

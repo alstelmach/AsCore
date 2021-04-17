@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
-using ASCore.Application.Abstractions.Messaging.Events;
-using ASCore.Domain.Abstractions.BuildingBlocks;
+using AsCore.Application.Abstractions.Messaging.Events;
+using AsCore.Domain.Abstractions.BuildingBlocks;
 using MassTransit;
 using MediatR;
 
-namespace ASCore.Infrastructure.Messaging.Events
+namespace AsCore.Infrastructure.Messaging.Events
 {
     public sealed class EventBus : Bus,
         IDomainEventPublisher,

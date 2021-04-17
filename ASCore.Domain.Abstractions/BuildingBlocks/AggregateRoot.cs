@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace ASCore.Domain.Abstractions.BuildingBlocks
+namespace AsCore.Domain.Abstractions.BuildingBlocks
 {
     public abstract class AggregateRoot : Entity
     {

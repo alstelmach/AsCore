@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Security.Claims;
 
-namespace ASCore.Infrastructure.Identity
+namespace AsCore.Infrastructure.Identity
 {
     public static class JwtDecoder
     {

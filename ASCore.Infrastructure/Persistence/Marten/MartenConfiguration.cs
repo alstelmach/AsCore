@@ -6,7 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 
-namespace ASCore.Infrastructure.Persistence.Marten
+namespace AsCore.Infrastructure.Persistence.Marten
 {
     public static class MartenConfiguration
     {

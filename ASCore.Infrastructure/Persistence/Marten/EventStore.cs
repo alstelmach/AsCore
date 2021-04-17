@@ -4,10 +4,10 @@ using System.Collections.Immutable;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using ASCore.Domain.Abstractions.BuildingBlocks;
+using AsCore.Domain.Abstractions.BuildingBlocks;
 using Marten;
 
-namespace ASCore.Infrastructure.Persistence.Marten
+namespace AsCore.Infrastructure.Persistence.Marten
 {
     public sealed class EventStore : IEventStore
     {

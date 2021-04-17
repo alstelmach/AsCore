@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace ASCore.Infrastructure.Messaging
+namespace AsCore.Infrastructure.Messaging
 {
     public abstract class Bus
     {

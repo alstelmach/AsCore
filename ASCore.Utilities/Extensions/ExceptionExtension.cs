@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ASCore.Utilities.Extensions
+namespace AsCore.Utilities.Extensions
 {
     public static class ExceptionExtension
     {

@@ -1,10 +1,10 @@
-﻿using ASCore.Application.Abstractions.Messaging.Events;
-using ASCore.Infrastructure.Messaging.Events;
+﻿using AsCore.Application.Abstractions.Messaging.Events;
+using AsCore.Infrastructure.Messaging.Events;
 using MassTransit;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace ASCore.Infrastructure.Messaging.MessageBrokers.RabbitMQ
+namespace AsCore.Infrastructure.Messaging.MessageBrokers.RabbitMQ
 {
     internal static class RabbitMQConfiguration
     {

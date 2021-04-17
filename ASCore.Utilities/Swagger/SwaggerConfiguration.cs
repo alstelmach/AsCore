@@ -4,7 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
 
-namespace ASCore.Utilities.Swagger
+namespace AsCore.Utilities.Swagger
 {
     public static class SwaggerConfiguration
     {
