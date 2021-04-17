@@ -3,6 +3,13 @@
     <PropertyGroup>
         <TargetFramework>net5.0</TargetFramework>
         <RootNamespace>AsCore.Domain.Abstractions</RootNamespace>
+        <Title>AsCore.Domain.Abstractions</Title>
+        <Authors>Aleksander Stelmach</Authors>
+        <Description>Package contains building blocks which may be used in domain driven systems.</Description>
+        <RepositoryUrl>https://github.com/alstelmach/AsCore</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <PackageTags>Domain, Core, Abstractions</PackageTags>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     </PropertyGroup>
 
     <ItemGroup>
