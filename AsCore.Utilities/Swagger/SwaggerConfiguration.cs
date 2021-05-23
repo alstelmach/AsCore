@@ -13,7 +13,7 @@ namespace AsCore.Utilities.Swagger
 
         private const string SwaggerUrlTemplate = "/swagger/{0}/swagger.json";
         private const string AuthorizationHeaderKey = "Authorization";
-        private const string AuthorizationHeaderDescription = "JWT Authorization header used in the bearer scheme";
+        private const string AuthorizationHeaderDescription = "JWT Authorization header used in the bearer schema";
         private const string BearerAuthenticationName = "Bearer";
 
         public static IServiceCollection AddSwagger(

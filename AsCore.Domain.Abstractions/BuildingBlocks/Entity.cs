@@ -9,6 +9,7 @@ namespace AsCore.Domain.Abstractions.BuildingBlocks
             Id = id;
         }
 
+        // ReSharper disable once MemberCanBePrivate.Global
         public Guid Id { get; protected set; }
     }
 }

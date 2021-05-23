@@ -40,8 +40,6 @@ namespace AsCore.Infrastructure.Mvc.Filters
         private static HttpStatusCode FindCorrespondingStatusCode(Exception exception) =>
             exception switch
             {
-                ArgumentNullException _ => HttpStatusCode.NotFound,
-                NullReferenceException _ => HttpStatusCode.NotFound,
                 UnauthorizedAccessException _ => HttpStatusCode.Unauthorized,
                 _ => HttpStatusCode.InternalServerError
             };

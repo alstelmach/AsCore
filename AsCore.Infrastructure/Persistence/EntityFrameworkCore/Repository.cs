@@ -60,7 +60,7 @@ namespace AsCore.Infrastructure.Persistence.EntityFrameworkCore
         public virtual async Task DeleteAsync(Guid id, CancellationToken cancellationToken = default)
         {
             var aggregateRoot = await GetAsync(id, cancellationToken);
-            var doesExist = !(aggregateRoot is null);
+            var doesExist = aggregateRoot is not null;
 
             if (doesExist)
             {
