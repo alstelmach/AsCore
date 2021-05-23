@@ -1,11 +1,9 @@
 ﻿using System.Threading.Tasks;
-using AsCore.Application.Abstractions.Messaging.Events;
 using MassTransit;
 
-namespace AsCore.Infrastructure.Messaging.Events
+namespace AsCore.Application.Abstractions.Messaging.Events
 {
-    public abstract class IntegrationEventHandler<TIntegrationEvent> : IIntegrationEventHandler<TIntegrationEvent>,
-        IConsumer<TIntegrationEvent>
+    public abstract class IntegrationEventHandler<TIntegrationEvent> : IConsumer<TIntegrationEvent>
         where TIntegrationEvent : IntegrationEvent
     {
         protected ConsumeContext<TIntegrationEvent> ConsumeContext { get; private set; }

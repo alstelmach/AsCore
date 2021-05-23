@@ -1,9 +1,11 @@
-﻿using AsCore.Application.Abstractions.Messaging.Commands;
-using AsCore.Application.Abstractions.Messaging.Events;
+﻿using System;
+using System.Reflection;
+using AsCore.Application.Abstractions.Messaging.Commands;
 using AsCore.Application.Abstractions.Messaging.Queries;
 using AsCore.Domain.Abstractions.BuildingBlocks;
 using AsCore.Infrastructure.Messaging.Commands;
 using AsCore.Infrastructure.Messaging.Events;
+using AsCore.Infrastructure.Messaging.MessageBrokers;
 using AsCore.Infrastructure.Messaging.MessageBrokers.RabbitMQ;
 using AsCore.Infrastructure.Messaging.Queries;
 using MediatR;
@@ -14,12 +16,7 @@ namespace AsCore.Infrastructure.Messaging
 {
     public static class MessagingDependenciesRegistry
     {
-        private const string RabbitMQSettingsSectionKey = "Messaging:RabbitMQ";
-        private const string RabbitMQConnectionStringPattern = "amqp://{0}";
-        private const string RabbitConnectionCheckName = "RabbitMQConnection";
-        private const string DefaultRabbitMQTag = "RabbitMQBus";
-
-        public static IServiceCollection AddMessaging(this IServiceCollection services) =>
+        public static IServiceCollection AddDomesticMessaging(this IServiceCollection services) =>
             services
                 .AddScoped<IMediator, Mediator>()
                 .AddScoped<ServiceFactory>(serviceProvider =>
@@ -28,31 +25,18 @@ namespace AsCore.Infrastructure.Messaging
                 .AddScoped<IQueryBus, QueryBus>()
                 .AddScoped<IDomainEventPublisher, EventBus>();
 
-        public static IServiceCollection AddRabbitMQ(this IServiceCollection services,
+        public static IServiceCollection AddIntegrationMessaging(this IServiceCollection services,
             IConfiguration configuration,
-            string exchangeType,
-            bool useHealthCheck)
-        {
-            var rabbitSettings = configuration
-                .GetSection(RabbitMQSettingsSectionKey)
-                .Get<RabbitMQSettings>();
-            
-            services
-                .RegisterRabbitMQDependencies(configuration,
-                    exchangeType)
-                .AddScoped<IIntegrationEventPublisher, EventBus>();
-
-            if (useHealthCheck)
-            {
-                services
-                    .AddHealthChecks()
-                    .AddRabbitMQ(string.Format(RabbitMQConnectionStringPattern,
-                            rabbitSettings.HostName),
-                        name: RabbitConnectionCheckName,
-                        tags: new[] { DefaultRabbitMQTag });
-            }
-
-            return services;
-        }
+            MessageBroker messageBroker,
+            bool useHealthCheck,
+            Assembly consumersAssembly) =>
+                messageBroker switch
+                {
+                    MessageBroker.RabbitMQ => services.AddRabbitMQ(
+                        configuration,
+                        useHealthCheck,
+                        consumersAssembly),
+                    _ => throw new ArgumentOutOfRangeException(nameof(MessageBroker))
+                };
     }
 }

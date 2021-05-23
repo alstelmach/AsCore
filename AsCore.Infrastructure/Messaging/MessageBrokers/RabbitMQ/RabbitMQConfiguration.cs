@@ -1,4 +1,5 @@
-﻿using AsCore.Application.Abstractions.Messaging.Events;
+﻿using System.Reflection;
+using AsCore.Application.Abstractions.Messaging.Events;
 using AsCore.Infrastructure.Messaging.Events;
 using MassTransit;
 using Microsoft.Extensions.Configuration;
@@ -9,38 +10,50 @@ namespace AsCore.Infrastructure.Messaging.MessageBrokers.RabbitMQ
     internal static class RabbitMQConfiguration
     {
         private const string RabbitMQSettingsSectionKey = "Messaging:RabbitMQ";
+        private const string RabbitMQConnectionStringPattern = "amqp://{0}";
+        private const string RabbitConnectionCheckName = "RabbitMQConnection";
+        private const string DefaultRabbitMQTag = "RabbitMQBus";
 
-        internal static IServiceCollection RegisterRabbitMQDependencies(
-            this IServiceCollection services,
+        internal static IServiceCollection AddRabbitMQ(this IServiceCollection services,
             IConfiguration configuration,
-            string exchangeType)
+            bool useHealthCheck,
+            Assembly consumersAssembly)
         {
-            var rabbitMQSettings = configuration
-                .GetSection(RabbitMQSettingsSectionKey)
-                .Get<RabbitMQSettings>();
+            var settingsSection = configuration.GetSection(RabbitMQSettingsSectionKey);
+            var rabbitMQSettings = settingsSection.Get<RabbitMQSettings>();
 
             services
                 .AddMassTransit(configurator =>
                 {
-                    configurator.AddConsumers(typeof(IntegrationEventHandler<IntegrationEvent>).Assembly);
-                })
-                .AddSingleton(serviceProvider => MassTransit.Bus.Factory.CreateUsingRabbitMq(configurator =>
-                {
-                    configurator
-                        .Host(rabbitMQSettings.HostName,
-                            rabbitMQSettings.VirtualHostName,
-                            hostConfigurator =>
-                            {
-                                hostConfigurator.Username(rabbitMQSettings.UserName);
-                                hostConfigurator.Password(rabbitMQSettings.Password);
-                            });
+                    configurator.AddConsumers(consumersAssembly);
+                    configurator.SetKebabCaseEndpointNameFormatter();
+                    configurator.UsingRabbitMq((context, busFactoryConfigurator) =>
+                    {
+                        busFactoryConfigurator
+                            .Host(rabbitMQSettings.HostName,
+                                rabbitMQSettings.VirtualHostName,
+                                hostConfigurator =>
+                                {
+                                    hostConfigurator.Username(rabbitMQSettings.UserName);
+                                    hostConfigurator.Password(rabbitMQSettings.Password);
+                                });
 
-                    configurator.ExchangeType = exchangeType;
-                }))
-                .AddSingleton<IPublishEndpoint>(provider => provider.GetRequiredService<IBusControl>())
-                .AddSingleton<ISendEndpointProvider>(provider => provider.GetRequiredService<IBusControl>())
-                .AddSingleton<IBus>(provider => provider.GetRequiredService<IBusControl>())
-                .Configure<RabbitMQSettings>(configuration.GetSection(RabbitMQSettingsSectionKey));
+                        busFactoryConfigurator.ConfigureEndpoints(context);
+                    });
+                })
+                .AddMassTransitHostedService()
+                .Configure<RabbitMQSettings>(settingsSection)
+                .AddScoped<IIntegrationEventPublisher, EventBus>();
+
+            if (useHealthCheck)
+            {
+                services
+                    .AddHealthChecks()
+                    .AddRabbitMQ(string.Format(RabbitMQConnectionStringPattern,
+                            rabbitMQSettings.HostName),
+                        name: RabbitConnectionCheckName,
+                        tags: new[] { DefaultRabbitMQTag });
+            }
 
             return services;
         }
