@@ -2,7 +2,7 @@
 
 namespace AsCore.Application.Abstractions.Messaging.Events
 {
-    public abstract class IntegrationEvent
+    public abstract record IntegrationEvent
     {
         protected IntegrationEvent(Guid entityId,
             string eventType)
@@ -12,9 +12,12 @@ namespace AsCore.Application.Abstractions.Messaging.Events
         }
         
         public Guid Id { get; } = Guid.NewGuid();
-        public DateTime CreatedAtUtc { get; } = DateTime.UtcNow;
         public Guid EntityId { get; }
         public string EventType { get; }
-        public DateTime? PublishedAtUtc { get; set; }
+        public DateTime CreatedAtUtc { get; } = DateTime.UtcNow;
+        public DateTime? PublishedAtUtc { get; private set; }
+
+        public virtual void MarkAsPublished() =>
+            PublishedAtUtc = DateTime.UtcNow;
     }
 }

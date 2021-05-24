@@ -10,7 +10,7 @@
         <RepositoryUrl>https://github.com/alstelmach/AsCore</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
         <PackageTags>Infrastructure, Core</PackageTags>
-        <PackageVersion>1.0.5-alpha</PackageVersion>
+        <PackageVersion>1.0.7-alpha</PackageVersion>
     </PropertyGroup>
 
     <ItemGroup>
@@ -21,6 +21,7 @@
       <PackageReference Include="Dapper" Version="2.0.78" />
       <PackageReference Include="JsonNet.PrivatePropertySetterResolver" Version="1.0.0" />
       <PackageReference Include="Marten" Version="4.0.0-alpha.9" />
+      <PackageReference Include="MassTransit.AspNetCore" Version="7.1.8" />
       <PackageReference Include="MassTransit.Extensions.DependencyInjection" Version="7.1.8" />
       <PackageReference Include="MassTransit.RabbitMQ" Version="7.1.8" />
       <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.4" />

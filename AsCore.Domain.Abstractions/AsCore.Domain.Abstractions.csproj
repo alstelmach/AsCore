@@ -10,7 +10,7 @@
         <RepositoryType>git</RepositoryType>
         <PackageTags>Domain, Core, Abstractions</PackageTags>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-        <PackageVersion>1.0.1</PackageVersion>
+        <PackageVersion>1.0.3</PackageVersion>
     </PropertyGroup>
 
     <ItemGroup>

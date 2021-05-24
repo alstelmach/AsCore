@@ -10,11 +10,15 @@
         <RepositoryUrl>https://github.com/alstelmach/AsCore</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
         <PackageTags>Application, Abstractions, Core</PackageTags>
-        <PackageVersion>1.0.1</PackageVersion>
+        <PackageVersion>1.0.2</PackageVersion>
     </PropertyGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\AsCore.Domain.Abstractions\AsCore.Domain.Abstractions.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="MassTransit" Version="7.1.8" />
     </ItemGroup>
 
 </Project>

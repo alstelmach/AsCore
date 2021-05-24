@@ -42,7 +42,7 @@ namespace AsCore.Infrastructure.Identity
             DateTime? expirationTime,
             SecurityToken token,
             TokenValidationParameters validationParams) =>
-                !(expirationTime is null)
+                expirationTime is not null
                     && expirationTime > DateTime.UtcNow;
     }
 }

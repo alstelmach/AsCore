@@ -106,13 +106,13 @@ namespace AsCore.Infrastructure.Persistence.EntityFrameworkCore
                         .AddHealthChecks()
                         .AddSqlServer(connectionString,
                             name: typeof(TContext).FullName,
-                            tags: new[] {SqlServerTag})
+                            tags: new[] { SqlServerTag })
                         .Services,
                     DatabaseProvider.PostgreSQL => services
                         .AddHealthChecks()
                         .AddNpgSql(connectionString,
                             name: typeof(TContext).FullName,
-                            tags: new[] {PostgreSQLTag})
+                            tags: new[] { PostgreSQLTag })
                         .Services,
                     _ => throw new ArgumentOutOfRangeException(nameof(DatabaseProvider))
                 };

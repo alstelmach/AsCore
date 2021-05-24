@@ -2,7 +2,7 @@
 
 namespace AsCore.Domain.Abstractions.BuildingBlocks
 {
-    public abstract class DomainEvent : IDomainEvent
+    public abstract record DomainEvent : IDomainEvent
     {
         protected DomainEvent(Guid entityId)
         {
@@ -10,7 +10,7 @@ namespace AsCore.Domain.Abstractions.BuildingBlocks
         }
 
         public Guid Id { get; } = Guid.NewGuid();
-        public DateTime CreatedAtUtc { get; } = DateTime.UtcNow;
         public Guid EntityId { get; }
+        public DateTime CreatedAtUtc { get; } = DateTime.UtcNow;
     }
 }

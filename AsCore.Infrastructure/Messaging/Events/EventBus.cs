@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using AsCore.Application.Abstractions.Messaging.Events;
 using AsCore.Domain.Abstractions.BuildingBlocks;
@@ -16,10 +15,8 @@ namespace AsCore.Infrastructure.Messaging.Events
 
         public EventBus(IMediator mediator,
             IPublishEndpoint publishEndpoint)
-            : base(mediator)
-        {
-            _publishEndpoint = publishEndpoint;
-        }
+                : base(mediator) =>
+                    _publishEndpoint = publishEndpoint;
 
         public async Task PublishAsync(params IDomainEvent[] events)
         {
@@ -29,17 +26,11 @@ namespace AsCore.Infrastructure.Messaging.Events
             await Task.WhenAll(publicationTasks);
         }
 
-        public async Task PublishAsync(params IntegrationEvent[] events)
+        public async Task PublishAsync<TIntegrationEvent>(TIntegrationEvent @event)
+            where TIntegrationEvent : IntegrationEvent
         {
-            var globalPublicationTasks = events
-                .Select(@event =>
-                {
-                    @event.PublishedAtUtc = DateTime.UtcNow;
-
-                    return _publishEndpoint.Publish(@event);
-                });
-
-            await Task.WhenAll(globalPublicationTasks);
+            @event.MarkAsPublished();
+            await _publishEndpoint.Publish(@event);
         }
     }
 }
