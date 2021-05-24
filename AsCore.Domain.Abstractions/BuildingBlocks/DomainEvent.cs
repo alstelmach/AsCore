@@ -2,7 +2,7 @@
 
 namespace AsCore.Domain.Abstractions.BuildingBlocks
 {
-    public abstract class DomainEvent : IDomainEvent
+    public abstract record DomainEvent : IDomainEvent
     {
         protected DomainEvent(Guid entityId)
         {
