@@ -1,4 +1,4 @@
-﻿namespace AsCore.Infrastructure.Persistence.BuildingBlocks
+﻿namespace AsCore.Infrastructure.Persistence
 {
     public enum DatabaseProvider
     {

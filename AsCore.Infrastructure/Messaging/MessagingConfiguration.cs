@@ -16,14 +16,16 @@ namespace AsCore.Infrastructure.Messaging
 {
     public static class MessagingDependenciesRegistry
     {
-        public static IServiceCollection AddDomesticMessaging(this IServiceCollection services) =>
-            services
-                .AddScoped<IMediator, Mediator>()
-                .AddScoped<ServiceFactory>(serviceProvider =>
-                    serviceProvider.GetService)
-                .AddScoped<ICommandBus, CommandBus>()
-                .AddScoped<IQueryBus, QueryBus>()
-                .AddScoped<IDomainEventPublisher, EventBus>();
+        public static IServiceCollection AddDomesticMessaging(this IServiceCollection services,
+            Assembly handlersAssembly) =>
+                services
+                    .AddMediatR(handlersAssembly)
+                    .AddScoped<IMediator, Mediator>()
+                    .AddScoped<ServiceFactory>(serviceProvider =>
+                        serviceProvider.GetService)
+                    .AddScoped<ICommandBus, CommandBus>()
+                    .AddScoped<IQueryBus, QueryBus>()
+                    .AddScoped<IDomainEventPublisher, DomainEventBus>();
 
         public static IServiceCollection AddIntegrationMessaging(this IServiceCollection services,
             IConfiguration configuration,

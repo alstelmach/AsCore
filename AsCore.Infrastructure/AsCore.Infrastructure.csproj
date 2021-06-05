@@ -10,7 +10,7 @@
         <RepositoryUrl>https://github.com/alstelmach/AsCore</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
         <PackageTags>Infrastructure, Core</PackageTags>
-        <PackageVersion>1.0.8-alpha</PackageVersion>
+        <PackageVersion>1.0.9-alpha</PackageVersion>
     </PropertyGroup>
 
     <ItemGroup>
@@ -25,6 +25,7 @@
       <PackageReference Include="MassTransit.AspNetCore" Version="7.1.8" />
       <PackageReference Include="MassTransit.Extensions.DependencyInjection" Version="7.1.8" />
       <PackageReference Include="MassTransit.RabbitMQ" Version="7.1.8" />
+      <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="9.0.0" />
       <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.4" />
       <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
       <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="5.0.4" />

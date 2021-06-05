@@ -69,7 +69,7 @@ namespace AsCore.Infrastructure.Persistence.EntityFrameworkCore
                     .Remove(aggregateRoot);
             }
 
-            await DbContext.SaveChangesAsync(cancellationToken);
+            await CommitAsync(aggregateRoot);
         }
         
         protected async Task CommitAsync(TAggregateRoot aggregateRoot)
