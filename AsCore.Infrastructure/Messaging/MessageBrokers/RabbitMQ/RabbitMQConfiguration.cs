@@ -43,7 +43,7 @@ namespace AsCore.Infrastructure.Messaging.MessageBrokers.RabbitMQ
                 })
                 .AddMassTransitHostedService()
                 .Configure<RabbitMQSettings>(settingsSection)
-                .AddScoped<IIntegrationEventPublisher, EventBus>();
+                .AddScoped<IIntegrationEventPublisher, IntegrationEventBus>();
 
             if (useHealthCheck)
             {

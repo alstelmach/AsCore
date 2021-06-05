@@ -1,5 +1,4 @@
 ﻿using System;
-using AsCore.Infrastructure.Persistence.BuildingBlocks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;

@@ -1,18 +1,18 @@
 ﻿using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using AsCore.Application.Abstractions.Repositories;
 using Dapper;
 using Microsoft.EntityFrameworkCore;
 
-namespace AsCore.Infrastructure.Persistence.BuildingBlocks
+namespace AsCore.Infrastructure.Persistence.ReadModel
 {
-    public abstract class ReadModelRepository<TObject> where TObject : class
+    public abstract class ReadModelRepository<TObject> : IReadModelRepository<TObject>
+        where TObject : class
     {
-        protected ReadModelRepository(DbContext dbContext)
-        {
+        protected ReadModelRepository(DbContext dbContext) =>
             DbContext = dbContext;
-        }
-        
+
         protected DbContext DbContext { get; }
 
         public virtual async Task CreateAsync(TObject @object)
