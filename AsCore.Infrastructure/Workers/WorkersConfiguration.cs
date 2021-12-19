@@ -8,20 +8,23 @@ namespace AsCore.Infrastructure.Workers
     {
         private const string EmptyCronExpressionMessage = "Cron expression can't be empty.";
         
-        public static IServiceCollection AddCronJob<TJob>(this IServiceCollection services,
+        public static IServiceCollection AddCronJob<TJob>(
+            this IServiceCollection services,
             IConfiguration configuration,
             string cronExpressionSectionKey,
             string triggerOnStartupSectionKey = default) where TJob : CronJobService
         {
             var cronExpression = configuration.GetSection(cronExpressionSectionKey).Value;
-            var missingCronExpression = string.IsNullOrEmpty(cronExpressionSectionKey) || string.IsNullOrWhiteSpace(cronExpression);
+            var missingCronExpression = string.IsNullOrEmpty(cronExpressionSectionKey)
+                                        || string.IsNullOrWhiteSpace(cronExpression);
 
             if (missingCronExpression)
             {
                 throw new ArgumentException(EmptyCronExpressionMessage);
             }
             
-            var triggerOnStartup = bool.TryParse(configuration.GetSection(triggerOnStartupSectionKey).Value,
+            var triggerOnStartup = bool.TryParse(
+                configuration.GetSection(triggerOnStartupSectionKey).Value,
                 out var parsingResult) && parsingResult;
 
             var config = new ScheduleConfig<TJob>

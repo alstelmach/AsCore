@@ -1,11 +1,9 @@
-﻿using System;
-using MediatR;
+﻿using MediatR;
 
 namespace AsCore.Domain.Abstractions.BuildingBlocks
 {
-    public interface IDomainEvent : INotification,
-        IIdentifiable
+    public interface IDomainEvent : INotification 
     {
-        DateTime CreatedAtUtc { get; }        
+        public object AggregateRootId { get; }
     }
 }

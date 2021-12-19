@@ -1,15 +1,12 @@
-﻿using System;
-
-namespace AsCore.Domain.Abstractions.BuildingBlocks
+﻿namespace AsCore.Domain.Abstractions.BuildingBlocks
 {
-    public abstract class Entity : IIdentifiable
+    public abstract class Entity<TKey> : IIdentifiable<TKey>
     {
-        protected Entity(Guid id)
+        protected Entity(TKey id)
         {
             Id = id;
         }
 
-        // ReSharper disable once MemberCanBePrivate.Global
-        public Guid Id { get; protected set; }
+        public TKey Id { get; protected set; }
     }
 }

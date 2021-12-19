@@ -3,16 +3,16 @@ using System.Collections.Generic;
 
 namespace AsCore.Domain.Abstractions.BuildingBlocks
 {
-    public abstract class AggregateRoot : Entity
+    public abstract class AggregateRoot<TKey> : Entity<TKey>
     {
         [NonSerialized]
         private readonly Queue<IDomainEvent> _domainEvents = new();
 
-        protected AggregateRoot(Guid id)
+        protected AggregateRoot(TKey id)
             : base(id)
         {
         }
-        
+
         public int Version { get; private set; }
 
         public IDomainEvent[] DequeueDomainEvents()

@@ -16,6 +16,7 @@ namespace AsCore.Utilities.Swagger
         private const string AuthorizationHeaderDescription = "JWT Authorization header used in the bearer schema";
         private const string BearerAuthenticationName = "Bearer";
 
+        // ToDo: Pass name and version as a param in here
         public static IServiceCollection AddSwagger(
             this IServiceCollection services,
             IConfiguration configuration)
@@ -67,9 +68,14 @@ namespace AsCore.Utilities.Swagger
             return services;
         }
 
-        public static IApplicationBuilder UseSwaggerMiddleware(this IApplicationBuilder applicationBuilder, IConfiguration configuration)
+        public static IApplicationBuilder UseSwaggerMiddleware(
+            this IApplicationBuilder applicationBuilder,
+            IConfiguration configuration)
         {
-            var swaggerUrl = string.Format(SwaggerUrlTemplate, configuration.GetValue<string>(VersionSectionString));
+            var swaggerUrl = string.Format(
+                SwaggerUrlTemplate,
+                configuration.GetValue<string>(VersionSectionString));
+
             var name = configuration.GetValue<string>(NameSectionKey);
 
             applicationBuilder

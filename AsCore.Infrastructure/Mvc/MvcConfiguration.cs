@@ -8,6 +8,7 @@ using Newtonsoft.Json;
 
 namespace AsCore.Infrastructure.Mvc
 {
+    // ToDo: Refactor Mvc namespace
     public static class MvcConfiguration
     {
         public static IServiceCollection AddMvcDependencies(this IServiceCollection services,

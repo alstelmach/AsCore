@@ -4,9 +4,11 @@ using System.Threading.Tasks;
 
 namespace AsCore.Utilities.Extensions
 {
-    public static class IEnumerableExtension
+    public static class EnumerableExtension
     {
-        public static void ForEach<T>(this IEnumerable<T> enumerable, params Action<T>[] actions)
+        public static void ForEach<T>(
+            this IEnumerable<T> enumerable,
+            params Action<T>[] actions)
         {
             foreach (var item in enumerable)
             {
@@ -17,7 +19,9 @@ namespace AsCore.Utilities.Extensions
             }
         }
 
-        public static async Task ForEachAsync<T>(this IEnumerable<T> enumerable, params Func<T, Task>[] actions)
+        public static async Task ForEachAsync<T>(
+            this IEnumerable<T> enumerable,
+            params Func<T, Task>[] actions)
         {
             foreach (var item in enumerable)
             {

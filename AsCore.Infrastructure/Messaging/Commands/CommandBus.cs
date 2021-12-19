@@ -13,8 +13,12 @@ namespace AsCore.Infrastructure.Messaging.Commands
         {
         }
 
-        public async Task SendAsync(ICommand command, CancellationToken cancellationToken) =>
-            await Mediator
-                .Send(command, cancellationToken);
+        public async Task SendAsync(
+            ICommand command,
+            CancellationToken cancellationToken) =>
+                await Mediator
+                    .Send(
+                        command,
+                        cancellationToken);
     }
 }

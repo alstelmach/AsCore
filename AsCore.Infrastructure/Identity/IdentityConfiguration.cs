@@ -8,6 +8,8 @@ namespace AsCore.Infrastructure.Identity
 {
     public static class IdentityConfiguration
     {
+        // ToDo: remove
+        [Obsolete("To be removed from this package")]
         public static IServiceCollection RegisterIdentityDependencies(this IServiceCollection services,
             byte[] secretKey) =>
                 services
@@ -33,11 +35,15 @@ namespace AsCore.Infrastructure.Identity
                     })
                     .Services;
 
+        // ToDo: remove
+        [Obsolete("To be removed from this package")]
         public static IApplicationBuilder UseIdentityMiddlewares(this IApplicationBuilder applicationBuilder) =>
             applicationBuilder
                 .UseAuthentication()
                 .UseAuthorization();
 
+        // ToDo: remove
+        [Obsolete("To be removed from this package")]
         private static bool ValidateLifetime(DateTime? notBeforeTime,
             DateTime? expirationTime,
             SecurityToken token,

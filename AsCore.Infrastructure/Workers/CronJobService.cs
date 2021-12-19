@@ -12,7 +12,8 @@ namespace AsCore.Infrastructure.Workers
         private bool _hasBeenTriggeredOnStartup;
         private Timer _timer;
 
-        protected CronJobService(string cronExpression,
+        protected CronJobService(
+            string cronExpression,
             TimeZoneInfo timeZoneLocal,
             TimeZoneInfo timeZoneUtc,
             bool triggerOnStartup)
@@ -77,7 +78,9 @@ namespace AsCore.Infrastructure.Workers
             await Task.CompletedTask;
         }
 
-        private void StartTimer(TimeSpan delay, CancellationToken cancellationToken)
+        private void StartTimer(
+            TimeSpan delay,
+            CancellationToken cancellationToken)
         {
             _timer = new Timer(delay.TotalMilliseconds);
             _timer.Elapsed += async (_, _) =>
