@@ -6,7 +6,7 @@ namespace AsCore.Infrastructure.DependencyInjection.Persistence;
 
 public static class MongoDependenciesRegistry
 {
-    private static IServiceCollection AddMongoDependencies(
+    public static IServiceCollection AddMongoDependencies(
         this IServiceCollection services,
         string connectionString,
         int enabledSslProtocol)

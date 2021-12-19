@@ -4,6 +4,14 @@
         <TargetFramework>net6.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <Title>AsCore.Infrastructure.DependencyInjection</Title>
+        <Authors>Aleksander Stelmach</Authors>
+        <Description>Package contains dependency injection mechanisms.</Description>
+        <RepositoryUrl>https://github.com/alstelmach/AsCore</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <PackageTags>Infrastructure, Dependency Injection, Core</PackageTags>
+        <PackageVersion>1.0.1</PackageVersion>
     </PropertyGroup>
 
     <ItemGroup>

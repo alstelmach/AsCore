@@ -10,6 +10,7 @@
         <RepositoryUrl>https://github.com/alstelmach/AsCore</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
         <PackageTags>Utilities, Tools, Core</PackageTags>
+        <PackageVersion>1.1.0</PackageVersion>
     </PropertyGroup>
 
     <ItemGroup>
